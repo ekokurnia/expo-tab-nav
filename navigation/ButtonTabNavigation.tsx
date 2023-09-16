@@ -1,10 +1,12 @@
 import { StyleSheet } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import * as NavigationBar from "expo-navigation-bar";
 import { Ionicons } from "@expo/vector-icons";
 
 import { COLORS } from "../constants/theme";
 import { Home, Chat, Location, Profile } from "../screens";
 
+NavigationBar.setBackgroundColorAsync("#fff");
 const Tab = createBottomTabNavigator();
 const ButtonTabNavigation = () => {
    return (
@@ -87,13 +89,15 @@ const ButtonTabNavigation = () => {
 
 const styles = StyleSheet.create({
    tabBar: {
-      // padding: 20,
-      borderRadius: 20,
-      height: 60,
+      height: 70,
+      paddingHorizontal: 10,
+      opacity: 0.9,
+      borderTopStartRadius: 25,
+      borderTopEndRadius: 25,
       position: "absolute",
-      left: 20,
-      bottom: 20,
-      right: 20,
+      // left: 5,
+      // right: 5,
+      // bottom: 10,
    },
 });
 

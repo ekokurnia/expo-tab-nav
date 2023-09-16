@@ -6,11 +6,13 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import { OnBoarding } from "./screens";
 import ButtonTabNavigation from "./navigation/ButtonTabNavigation";
+import { Search } from "./screens";
 
 // Ref : https://stackoverflow.com/questions/68779417/navigation-navigatehome-showing-some-error-in-typescript
 export type RootStackParamList = {
    Onboard: undefined;
    Main: undefined;
+   Search: undefined;
 };
 
 const Stack = createNativeStackNavigator();
@@ -44,7 +46,15 @@ export default function App() {
             <Stack.Screen
                name="Main"
                component={ButtonTabNavigation}
-               options={{ headerShown: false }}
+               options={{ headerShown: false, animation: "fade" }}
+            />
+            <Stack.Screen
+               name="Search"
+               component={Search}
+               options={{
+                  headerShown: true,
+                  animation: "fade",
+               }}
             />
          </Stack.Navigator>
       </NavigationContainer>

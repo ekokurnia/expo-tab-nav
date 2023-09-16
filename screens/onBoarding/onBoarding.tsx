@@ -4,6 +4,7 @@ import * as NavigationBar from "expo-navigation-bar";
 import { COLORS } from "../../constants/theme";
 import { Slides, SlideProps } from "../../components";
 
+
 const OnBoarding = () => {
    // Onboarding slides
    const slides: ArrayLike<SlideProps> = [
@@ -25,7 +26,7 @@ const OnBoarding = () => {
       },
    ];
 
-   NavigationBar.setBackgroundColorAsync(COLORS.background);
+   // NavigationBar.setBackgroundColorAsync(COLORS.background);
 
    return (
       <FlatList

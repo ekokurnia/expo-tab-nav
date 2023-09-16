@@ -1,7 +1,6 @@
 import { View, Text, Image, ImageSourcePropType } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
-
 import { RootStackParamList } from "../../App";
 import { styles } from "./slides.style";
 import Button from "../Button/Button";

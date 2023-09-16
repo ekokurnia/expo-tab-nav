@@ -5,7 +5,7 @@ const Location = () => {
    return (
       <SafeAreaView>
          <View>
-            <Text>Location</Text>
+            <Text>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</Text>
          </View>
       </SafeAreaView>
    );
