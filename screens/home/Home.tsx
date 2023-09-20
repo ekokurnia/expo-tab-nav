@@ -1,13 +1,18 @@
 import { useState, useEffect } from "react";
-import { Text, View, ActivityIndicator, TouchableOpacity } from "react-native";
+import { Text, View, TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { AntDesign } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import { StackNavigationProp } from "@react-navigation/stack";
 import axios from "axios";
 
-import { RootStackParamList } from "../../App";
-import { Styles } from "../../components";
+import { ScreenNavigationProps } from "../../type";
+import {
+   Places,
+   globalStyles,
+   HeightSpacer,
+   LoadingScreen,
+   Recomendations,
+} from "../../components";
 import { COLORS } from "../../constants/theme";
 
 interface User {
@@ -16,10 +21,8 @@ interface User {
    email: string;
 }
 
-type mainScreenProps = StackNavigationProp<RootStackParamList, "Search">;
-
 const Home = () => {
-   const navigation = useNavigation<mainScreenProps>();
+   const navigation = useNavigation<ScreenNavigationProps>();
    const [loading, setIsLoading] = useState(true);
    const [data, setData] = useState<User[]>([]);
 
@@ -40,32 +43,26 @@ const Home = () => {
    }, [Home]);
 
    if (loading) {
-      return (
-         <SafeAreaView
-            style={[
-               Styles.container,
-               {
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  gap: 10,
-               },
-            ]}
-         >
-            <ActivityIndicator size={45} color={"#3151ff"} />
-            <Text style={{ textAlign: "center" }}>Loading..</Text>
-         </SafeAreaView>
-      );
+      return <LoadingScreen />;
    }
 
    return (
-      <SafeAreaView style={Styles.container}>
-         <View style={Styles.rowWrap}>
-            <Text style={{ fontSize: 16, fontWeight: "bold" }}>Hi, {data[0].name} !</Text>
-            <TouchableOpacity onPress={() => navigation.navigate("Search")}>
-               <AntDesign name="search1" size={25} color={COLORS.text} />
-            </TouchableOpacity>
+      <SafeAreaView style={globalStyles.container}>
+         <View style={globalStyles.rowWrap}>
+            <Text style={{ fontSize: 16, fontWeight: "500" }}>Hi, {data[0].name}</Text>
+            <View style={{ flexDirection: "row", gap: 10 }}>
+               <TouchableOpacity onPress={() => navigation.navigate("Search")}>
+                  <AntDesign name="search1" size={25} color={COLORS.text} />
+               </TouchableOpacity>
+               <TouchableOpacity onPress={() => navigation.navigate("Search")}>
+                  <AntDesign name="setting" size={25} color={COLORS.text} />
+               </TouchableOpacity>
+            </View>
          </View>
+         <HeightSpacer height={25} />
+         <Places />
+         <HeightSpacer height={25} />
+         <Recomendations />
       </SafeAreaView>
    );
 };

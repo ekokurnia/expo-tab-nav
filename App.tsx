@@ -4,18 +4,12 @@ import * as SplashScreen from "expo-splash-screen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import { OnBoarding } from "./screens";
-import ButtonTabNavigation from "./navigation/ButtonTabNavigation";
-import { Search } from "./screens";
+import { RootStackParamList } from "./type";
+import { OnBoarding, CountryDetails, Search } from "./screens";
+import TabNavigation from "./navigation/TabNavigation";
 
-// Ref : https://stackoverflow.com/questions/68779417/navigation-navigatehome-showing-some-error-in-typescript
-export type RootStackParamList = {
-   Onboard: undefined;
-   Main: undefined;
-   Search: undefined;
-};
-
-const Stack = createNativeStackNavigator();
+// Ref : https://stackoverflow.com/questions/68779417/navigation-navigatehome-showing-some-error-in-typescript, https://www.youtube.com/watch?v=FDQ_o76QbOY&t=232s&ab_channel=NoorMohammad
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function App() {
    const [fontLoaded] = useFonts({
@@ -45,7 +39,7 @@ export default function App() {
             />
             <Stack.Screen
                name="Main"
-               component={ButtonTabNavigation}
+               component={TabNavigation}
                options={{ headerShown: false, animation: "fade" }}
             />
             <Stack.Screen
@@ -53,7 +47,16 @@ export default function App() {
                component={Search}
                options={{
                   headerShown: true,
-                  animation: "fade",
+                  animation: "fade_from_bottom",
+               }}
+            />
+            <Stack.Screen
+               name="CountryDetails"
+               component={CountryDetails}
+               options={{
+                  headerShown: true,
+                  title: "Country Details",
+                  animation: "fade_from_bottom",
                }}
             />
          </Stack.Navigator>

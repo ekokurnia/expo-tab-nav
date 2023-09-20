@@ -1,11 +1,15 @@
 import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import { SafeAreaView } from "react-native-safe-area-context";
+
+import { globalStyles } from "../../components";
 
 const Search = () => {
    return (
-      <View>
-         <Text>Search</Text>
-      </View>
+      <SafeAreaView style={globalStyles.container}>
+         <View>
+            <Text>Search</Text>
+         </View>
+      </SafeAreaView>
    );
 };
 
