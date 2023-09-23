@@ -49,7 +49,7 @@ const Home = () => {
 
    return (
       <SafeAreaView style={globalStyles.container}>
-         <View style={globalStyles.rowWrap}>
+         <View style={[globalStyles.rowWrap, { paddingTop: 5 }]}>
             <Text style={{ fontSize: 16, fontWeight: "500" }}>Hi, {data[0].name}</Text>
             <View style={{ flexDirection: "row", gap: 10 }}>
                <TouchableOpacity onPress={() => navigation.navigate("Search")}>
