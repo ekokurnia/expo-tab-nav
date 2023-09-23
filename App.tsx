@@ -4,11 +4,12 @@ import * as SplashScreen from "expo-splash-screen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
+import { countryProps } from "./components";
 import { RootStackParamList } from "./type";
-import { OnBoarding, CountryDetails, Search } from "./screens";
+// Screens
+import { OnBoarding, CountryDetails, Search, Recomendations } from "./screens";
 import TabNavigation from "./navigation/TabNavigation";
 
-// Ref : https://stackoverflow.com/questions/68779417/navigation-navigatehome-showing-some-error-in-typescript, https://www.youtube.com/watch?v=FDQ_o76QbOY&t=232s&ab_channel=NoorMohammad
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function App() {
@@ -53,9 +54,18 @@ export default function App() {
             <Stack.Screen
                name="CountryDetails"
                component={CountryDetails}
+               options={({ route }: { route: any }) => ({
+                  headerShown: true,
+                  title: route.params?.name ?? "Country Details",
+                  animation: "fade_from_bottom",
+               })}
+            />
+            <Stack.Screen
+               name="Recomendations"
+               component={Recomendations}
                options={{
                   headerShown: true,
-                  title: "Country Details",
+                  title: "Recomendations",
                   animation: "fade_from_bottom",
                }}
             />

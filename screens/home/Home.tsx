@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Text, View, TouchableOpacity } from "react-native";
+import { Text, View, TouchableOpacity, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { AntDesign } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
@@ -14,6 +14,7 @@ import {
    Recomendations,
 } from "../../components";
 import { COLORS } from "../../constants/theme";
+import NearbyHotels from "../../components/Home/NearbyHotels";
 
 interface User {
    id: number;
@@ -60,9 +61,13 @@ const Home = () => {
             </View>
          </View>
          <HeightSpacer height={25} />
-         <Places />
-         <HeightSpacer height={25} />
-         <Recomendations />
+         <ScrollView showsVerticalScrollIndicator={false}>
+            <Places />
+            <HeightSpacer height={25} />
+            <Recomendations />
+            <HeightSpacer height={25} />
+            <NearbyHotels />
+         </ScrollView>
       </SafeAreaView>
    );
 };

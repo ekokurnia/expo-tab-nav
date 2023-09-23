@@ -8,6 +8,7 @@ const COLORS = {
    background: "#faeed8",
    primaryMuted: "#778aff",
    text: "#110d0b",
+   textMuted: "#7d7d7d",
 };
 const SIZES = {
    xs: 10,
