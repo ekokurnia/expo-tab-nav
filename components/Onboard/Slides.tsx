@@ -1,9 +1,10 @@
 import { View, Text, Image, ImageSourcePropType } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { RootStackParamList } from "../../App";
 import { styles } from "./slides.style";
 import Button from "../Button/Button";
+
+import { ScreenNavigationProps } from "../../type";
 
 export interface SlideProps {
    id: number;
@@ -13,10 +14,9 @@ export interface SlideProps {
 }
 
 // Ref : https://stackoverflow.com/questions/68779417/navigation-navigatehome-showing-some-error-in-typescript
-type mainScreenProps = StackNavigationProp<RootStackParamList, "Main">;
 
 const Slides = ({ item }: { item: SlideProps }) => {
-   const navigation = useNavigation<mainScreenProps>();
+   const navigation = useNavigation<ScreenNavigationProps>();
    return (
       <View style={styles.container}>
          <Image source={item.image} style={styles.image} />

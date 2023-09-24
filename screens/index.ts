@@ -6,6 +6,7 @@ import Profile from "./profile/Profile";
 import Search from "./search/Search";
 import CountryDetails from "./detail/CountryDetail";
 import Recomendations from "./home/Recomendations";
+import Login from "./auth/Login";
 
 export {
    OnBoarding,
@@ -16,4 +17,5 @@ export {
    Search,
    CountryDetails,
    Recomendations,
+   Login,
 };

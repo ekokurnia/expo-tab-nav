@@ -6,6 +6,7 @@ export type RootStackParamList = {
    Search: undefined;
    CountryDetails: undefined;
    Recomendations: undefined;
+   Login: undefined;
 };
 
 export type ScreenNavigationProps = NativeStackScreenProps<
@@ -14,5 +15,6 @@ export type ScreenNavigationProps = NativeStackScreenProps<
    "Main",
    "Search",
    "CountryDetails",
-   "Recomendations"
+   "Recomendations",
+   "Login"
 >;

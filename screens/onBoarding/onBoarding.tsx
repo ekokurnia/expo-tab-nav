@@ -4,7 +4,7 @@ import { Slides, SlideProps } from "../../components";
 
 const OnBoarding = () => {
    // Onboarding slides
-   const slides: ArrayLike<SlideProps> = [
+   const slides: Array<SlideProps> = [
       {
          id: 1,
          image: require("../../assets/images/onboard1.png"),
@@ -22,8 +22,6 @@ const OnBoarding = () => {
          isLast: true,
       },
    ];
-
-   // NavigationBar.setBackgroundColorAsync(COLORS.background);
 
    return (
       <FlatList

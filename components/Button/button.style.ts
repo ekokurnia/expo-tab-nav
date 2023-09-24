@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
    text: {
       textAlign: "center",
       color: "#fff",
-      fontWeight: "700",
+      fontWeight: "600",
       fontSize: SIZES.md,
    },
    button: {
@@ -19,5 +19,9 @@ export const styles = StyleSheet.create({
    },
    secondaryButton: {
       backgroundColor: COLORS.secondary,
+   },
+   outlineButton: {
+      borderColor: COLORS.primary,
+      borderWidth: 2,
    },
 });
